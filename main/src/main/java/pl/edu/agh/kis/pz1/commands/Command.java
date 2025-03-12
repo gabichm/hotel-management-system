@@ -40,6 +40,12 @@ public class Command extends Hotel {
         return Objects.hash(command);
     }
 
+    /**
+     * Function which from the room number finds it's index in the vector
+     * @param roomNumber number of the roon
+     * @param hotel the hotel
+     * @return  the room's index
+     */
     static int getRoomIndex(int roomNumber, Hotel hotel) {
         int i = 0;
         for(Room room: hotel.listOfRooms) {
@@ -54,6 +60,11 @@ public class Command extends Hotel {
 
 
     }
+
+    /**
+     * Function asks about room number
+     * @return Returns int with room number
+     */
     static  int askRoomNumber() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter room number: ");

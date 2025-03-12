@@ -5,5 +5,4 @@ pl/edu/agh/kis/pz1/model/Room.class
 pl/edu/agh/kis/pz1/commands/ListCommand.class
 pl/edu/agh/kis/pz1/commands/CheckOutCommand.class
 pl/edu/agh/kis/pz1/commands/CheckInCommand.class
-pl/edu/agh/kis/pz1/commands/ExitCommand.class
 pl/edu/agh/kis/pz1/commands/ViewCommand.class

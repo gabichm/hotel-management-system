@@ -1,8 +1,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <parent>	
+  <parent>
     <groupId>pl.edu.agh.kis.pz1</groupId>
     <artifactId>multi-module</artifactId>
     <version>1.0</version>
@@ -17,6 +17,7 @@
     <maven.compiler.target>1.8</maven.compiler.target>
     <maven.compiler.source>1.8</maven.compiler.source>
   </properties>
+
 
 
   <build>
@@ -42,7 +43,7 @@
         </configuration>
         <executions>
           <execution>
-            <phase>package</phase> 
+            <phase>package</phase>
             <goals>
               <goal>single</goal>
             </goals>
@@ -61,7 +62,7 @@
         </executions>
       </plugin>
     </plugins>
-  </build> 
+  </build>
 
   <!-- najświeższa wersja w otwartym repo maven to 4.13.2 -->
   <dependencies>
@@ -73,13 +74,50 @@
     </dependency>
 
     <dependency>
-        <groupId>pl.edu.agh.kis.pz1</groupId>
-        <artifactId>utils</artifactId>
-        <version>${project.version}</version>
+      <groupId>pl.edu.agh.kis.pz1</groupId>
+      <artifactId>utils</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <version>RELEASE</version>
+      <scope>test</scope>
     </dependency>
 
 
   </dependencies>
 
-
+  <profiles>
+    <profile>
+      <id>attributed</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.jacoco</groupId>
+            <artifactId>jacoco-maven-plugin</artifactId>
+            <version>0.8.11</version>
+            <executions>
+              <execution>
+                <id>jacoco-initialize</id>
+                <goals>
+                  <goal>prepare-agent</goal>
+                </goals>
+              </execution>
+              <execution>
+                <id>jacoco-site</id>
+                <phase>package</phase>
+                <goals>
+                  <goal>report</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 </project>

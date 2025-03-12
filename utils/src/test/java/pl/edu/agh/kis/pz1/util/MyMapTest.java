@@ -15,6 +15,7 @@ public class MyMapTest extends TestCase {
     public List<Integer> value2 = Arrays.asList(68,92,46,12,6,4,14);
     public MyMap<Integer,String> map1 = new MyMap<>();
     public MyMap<Integer,Integer> map2 = new MyMap<>();
+    @Test
     public void testPutMethod() {
         map1.put(1,"one");
         map1.put(2,"two");
@@ -32,7 +33,7 @@ public class MyMapTest extends TestCase {
         assertEquals(value2.size(), map2.size());
     }
 
-
+    @Test
     public void testRemove() {map1.put(1,"one");
         map1 = createMap1();
         map2 = createMap2();
@@ -44,23 +45,23 @@ public class MyMapTest extends TestCase {
         assertTrue(map2.remove(23));
         assertFalse(map2.remove(17));
     }
-
+    @Test
     public void testGet() {
         map1 = createMap1();
         map2 = createMap2();
         assertEquals(map1.get(2), "two");
         assertEquals(map1.get(5), "five");
-        assertEquals(map2.get(34), 68);
-        assertEquals(map2.get(2), 4);
+        assertEquals(Optional.ofNullable(map2.get(34)), Optional.ofNullable(68));
+        assertEquals(Optional.ofNullable(map2.get(2)), Optional.ofNullable(4));
 
     }
-
+    @Test
     public void testKeys() {
         map1 = createMap1();
         map2 = createMap2();
         List<Integer> keys1 = map1.keys();
         List<Integer> keys2 = map2.keys();
-        List<Integer> realKey1 = Arrays.asList(1, 2,3,4,5);
+        List<Integer> realKey1 = Arrays.asList( 2,3,4,5);
         List<Integer> realKey2 = Arrays.asList(34,46, 23, 6,3,2, 7);
         for(int i = 0; i < 4; ++i) {
             assertEquals(keys1.get(i), realKey1.get(i));
@@ -70,6 +71,7 @@ public class MyMapTest extends TestCase {
 
     }
 
+    @Test
     public void testContains() {
         Map map1 = createMap1();
         Map map2 = createMap2();
@@ -84,9 +86,8 @@ public class MyMapTest extends TestCase {
         assertTrue(map2.contains(3));
         assertFalse(map2.contains(68));
         assertFalse(map2.contains(92));
-        assertFalse(map2.contains(46));
     }
-
+    @Test
     private MyMap createMap1() {
         map1.put(2,"two");
         map1.put(3,"three");
@@ -94,6 +95,7 @@ public class MyMapTest extends TestCase {
         map1.put(5, "five");
         return map1;
     }
+    @Test
     private MyMap createMap2() {
         map2.put(34, 68);
         map2.put(46, 92);

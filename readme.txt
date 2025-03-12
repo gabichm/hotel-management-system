@@ -1,46 +1,43 @@
-1. Przykład wygenerowany na bazie archetypu (moduł main):
-   com.github.charlie-cityu.archetypes:docs-city-archetype-quickstart
-   (A variation on the maven-archetype-quickstart with source set to 1.8,
-    build to executable jar with dependencies and junit 4.12. File names have been changed
-    to Main.java and MainTest.java. Directory structure remains consistent with the Maven
-    standard.)
 
-2. Przyład buduje plik jar z zależnościami - posiada dodaną zależność (z lab. 3 i lab. 4):
+# Hotel Management System
 
-3. Został dodany moduł utils oraz macierzysty plik pom.xml okreslający, że projekt składa się z modułów:
+A Java program for managing a hotel with various functionalities.
 
-  <modules>
-      <module>utils</module>
-      <module>main</module>
-  </modules>
+## Table of Contents
 
+- [Introduction](#introduction)
+- [Usage](#usage)
+- [Commands](#commands)
 
-  <dependencyManagement>
-      <dependencies>
-          <dependency>
-              <groupId>pl.edu.agh.kis.pz1</groupId>
-              <artifactId>main</artifactId>
-              <version>${project.version}</version>
-          </dependency>
-          <dependency>
-              <groupId>pl.edu.agh.kis.pz1</groupId>
-              <artifactId>utils</artifactId>
-              <version>${project.version}</version>
-          </dependency>
-      </dependencies>
-  </dependencyManagement>
-  
-4. W pom.xml modułów jest odwołanie do pliku macierzystego:
-  <parent>	
-    <groupId>pl.edu.agh.kis.pz1</groupId>
-    <artifactId>multi-module</artifactId>
-    <version>1.0</version>
-  </parent>  
-  
-5. Paczka wykonywalna znajduje sie w module main, który ma dodaną zależność od modułu utils gdyż wykorzystje klasę tam zdefiniowaną - w sekcji <dependencies> dodano:
+## Introduction
 
-    <dependency>
-        <groupId>pl.edu.agh.kis.pz1</groupId>
-        <artifactId>utils</artifactId>
-        <version>${project.version}</version>
-    </dependency>
+The `Main` class is part of a program designed for advanced programming labs. It serves as a hotel management system with features like listing rooms, checking in guests, checking out guests, and more.
+
+## Usage
+
+To use the program, follow these steps:
+
+1. **Compile and Run:**
+
+   Compile the program and run the `Main` class.
+
+   ```bash
+   mvn compile
+   mvn package
+   java -jar main/target/main-1.0.jar
+   ```
+
+2. **Enter Commands:**
+
+   The program provides a command-line interface. Enter commands as instructed.
+
+## Commands
+
+- **List all rooms (1):** Displays a list of all rooms in the hotel.
+- **List of free rooms (2):** Displays a list of available (unoccupied) rooms.
+- **View room details (3):** Shows detailed information about a specific room.
+- **Check in guest (4):** Allows checking in a guest to a room.
+- **Check out guest (5):** Allows checking out a guest from a room.
+- **Exit program (6):** Exits the program.
+- **List commands (7):** Displays the list of available commands.
+

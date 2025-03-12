@@ -10,5 +10,8 @@
         <module name="utils" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="pz1-hotel" target="17" />
+    </bytecodeTargetLevel>
   </component>
 </project>
